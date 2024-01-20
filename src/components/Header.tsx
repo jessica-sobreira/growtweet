@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import logoGrowtweett from "../assets/LOGO_GROWTWEET.svg";
 
 export const HeaderStyled = styled.div`
 
@@ -8,7 +8,7 @@ export const HeaderStyled = styled.div`
 
 export function Header() {
     return (
-        <img src="grow-logo.png" alt="logo" />
+        <img src={logoGrowtweett} alt="logo" />
 
     )
 }

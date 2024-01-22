@@ -7,10 +7,6 @@ export const HeaderStyled = styled.div`
     flex-direction: row;
     padding: 1rem;
 
-    color: blue;
-    font-size: 2rem;
-    background-color: pink;
-
     img{
         width: 160px;
         height: auto;

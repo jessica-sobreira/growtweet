@@ -1,6 +1,5 @@
 import { LoginStyled } from "../components/Login";
 
-
 export function Login() {
     return (
         <LoginStyled>

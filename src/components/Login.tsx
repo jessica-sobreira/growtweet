@@ -35,6 +35,7 @@ export const LoginStyled = styled.div`
             color: white;
             line-height: 1.4;
             margin-left: 40px;
+            margin-right: 40px;
 
         }
 
@@ -49,6 +50,22 @@ export const LoginStyled = styled.div`
             font-size: 2em;
             margin-bottom: 20px;
             color: white;
+        }
+
+        .cadastro {
+            font-size: 1em;
+            color: white;
+            margin-top: 30px;
+            margin-left: 1em;
+
+            span {
+                color: #1DA1F2;
+                cursor: pointer;
+
+                &:hover {
+                    color: lightblue;
+                }
+            }
         }
 
         form {

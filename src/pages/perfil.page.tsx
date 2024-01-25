@@ -1,8 +1,16 @@
+import { Container } from "../components/Container";
+import { PerfilContent } from "../components/PerfilContent";
+import { LeftMenu } from "../components/LeftMenu";
+import { RightMenu } from "../components/RightMenu";
 
-export function Perfil () {
+
+
+export function Perfil() {
     return (
-        <div>
-            <h1>Perfil</h1>
-        </div>
+        <Container>
+        <LeftMenu/>
+        <PerfilContent/>
+        <RightMenu/>
+      </Container>
     )
 }

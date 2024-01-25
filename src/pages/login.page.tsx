@@ -11,17 +11,20 @@ export function Login() {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [modalNome, setModalNome] = useState<string>("");
   const [modalUsername, setModalUsername] = useState<string>("");
+  const [modalEmail, setModalEmail] = useState<string>("");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3005/login", {
+      const response = await axios.post("http://localhost:3005/auth/login", {
         email,
         senha,
       });
 
       console.log(response.data);
+
+      localStorage.setItem("token", response.data.token);
 
       window.location.href = "/tweets";
     } catch (error) {
@@ -34,12 +37,20 @@ export function Login() {
       const response = await axios.post("http://localhost:3005/usuario", {
         nome: modalNome,
         username: modalUsername,
-        email,
+        email: modalEmail,
         senha,
       });
       console.log(response.data);
 
+      
+      setModalNome("");
+      setModalUsername("");
+      setModalEmail(""); 
+      setSenha("");
+
       setShowModal(true);
+
+
     } catch (error) {
       console.error("Erro ao criar o usuário:", error);
     }

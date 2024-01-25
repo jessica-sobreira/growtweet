@@ -68,6 +68,7 @@ export const LoginStyled = styled.div`
             }
         }
 
+
         form {
             display: flex;
             flex-direction: column;
@@ -95,6 +96,4 @@ export const LoginStyled = styled.div`
                 }
             }
         }
-    }
-`;
-
+        `;

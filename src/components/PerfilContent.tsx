@@ -17,7 +17,7 @@ const ContentStyled = styled.div`
 `
 
 
-export function Content() {
+export function PerfilContent() {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function Content() {
 
   return (
     <ContentStyled id="content">
-      <h1>Página Inicial</h1>
+      <h1>Perfil</h1>
       <hr></hr>
       <ul>
         {tweets.map((tweet: Tweet) => (

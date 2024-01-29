@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import curtir from "../assets/ICONE_CURTIDAS.svg";
 import comentario from "../assets/ICONE_COMENTARIOS_STROKE.svg";
+import { Tweet } from "../model/tweet.model";
 
 
 const TweetStyled = styled.div`
@@ -14,7 +15,7 @@ const TweetStyled = styled.div`
         img {
             height: 60px;
             width: 60px;
-            position: cover;
+            position: center;
             border-radius: 50%;
         }
         
@@ -55,21 +56,26 @@ const TweetStyled = styled.div`
 
 `
 
+export interface TweetProps {
+    tweet: Tweet;
 
-export function TweetCard() {
-    const fotoPerfil = "https://observatoriog.com.br/wordpress/wp-content/uploads/2019/04/lisa-1.jpg"
+}
+
+
+export function TweetCard(props: TweetProps) {
+    
     return (
         <TweetStyled>
             <div className="foto">
-                <img src={fotoPerfil} alt="foto de perfil" />
+                <img src={props.tweet.usuario.photo} alt={props.tweet.usuario.nome} />
             </div>
             <div className="conteudo-tweet">
                 <div className="tweet-titulo">
-                    <h1>Lisa Simpson</h1>
-                    <span>@lisa</span>
+                    <h1>{props.tweet.usuario.nome}</h1>
+                    <span>@{props.tweet.usuario.username}</span>
                     <span>◽2h</span>
                 </div>
-                <div className="tweet-texto">Assista minha apresentação de saxofone!</div>
+                <div className="tweet-texto">{props.tweet.conteudo}</div>
                 <div className="tweet-botao">
                     <div className="botao"><img src={comentario} alt="comentário" /></div>
                     <div className="botao"><img src={curtir} alt="curtir" /></div>

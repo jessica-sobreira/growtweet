@@ -3,12 +3,7 @@ import { Header } from './Header';
 import casinha from '../assets/PAGINA_INICIAL_STROKE.svg';
 import explorar from '../assets/EXPLORAR_STROKE.svg';
 import perfil from '../assets/PERFIL_STROKE.svg';
-
-interface UsuarioProps {
-    photo: string;
-    nome: string;
-    username: string;
-}
+import { Usuario } from '../model/usuario.model';
 
 
 const LeftMenuStyled = styled.nav`
@@ -31,7 +26,7 @@ const LeftMenuStyled = styled.nav`
         font-size: 1.2em;
     }
 
-    #icone {
+    .icone {
         margin-right: 0.5em;
         width: 20px;
     }
@@ -71,24 +66,28 @@ const LeftMenuStyled = styled.nav`
 
 `
 
-export function LeftMenu() {
+export interface UsuarioProps {
+    usuario: Usuario,
+}
+
+export function LeftMenu(props: UsuarioProps) {
     return (
         <LeftMenuStyled id="left">
             <div id="topo">
                 <Header />
                 <ul id="menu">
                     <li id="item">
-                        <img src={casinha} alt="Página Inicial ícone" id="icone"/>
+                        <img src={casinha} alt="Página Inicial ícone" className="icone"/>
                         <span>Página Inicial</span>
                     </li>
 
                     <li id="item">
-                        <img src={explorar} alt="Explorar ícone" id="icone"/>
+                        <img src={explorar} alt="Explorar ícone" className="icone"/>
                         <span>Explorar</span>
                     </li>
 
                     <li id="item">
-                        <img src={perfil} alt="Perfil ícone" id="icone"/>
+                        <img src={perfil} alt="Perfil ícone" className="icone"/>
                         <span>Perfil</span>
                     </li>
                 </ul>
@@ -96,14 +95,14 @@ export function LeftMenu() {
                 <button id="tweetar">Tweetar</button>
             </div>
 
-            <div id="rodape">
+            {/* <div id="rodape">
                 <div>
-                    <img src="" alt="" />
-                    <span>Nome Usuário</span>
-                    <span>@username</span>
+                    <img src={props.usuario.photo} alt={props.usuario.nome} />
+                    <span>{props.usuario.nome}</span>
+                    <span>@{props.usuario.username}</span>
                 </div>
                 <button id="sair">Sair</button>
-            </div>
+            </div> */}
         </LeftMenuStyled>
     )
 }

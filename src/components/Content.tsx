@@ -6,6 +6,7 @@ overflow: auto;
 scrollbar-width: thin;
 border-right: 1px solid gray;
 
+
 .content-header {
   padding: 1em;
   font-weight: bold;

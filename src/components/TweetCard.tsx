@@ -57,10 +57,11 @@ const TweetStyled = styled.div`
 
 
 export function TweetCard() {
+    const fotoPerfil = "https://observatoriog.com.br/wordpress/wp-content/uploads/2019/04/lisa-1.jpg"
     return (
         <TweetStyled>
             <div className="foto">
-                <img src="https://observatoriog.com.br/wordpress/wp-content/uploads/2019/04/lisa-1.jpg" alt="foto de perfil" />
+                <img src={fotoPerfil} alt="foto de perfil" />
             </div>
             <div className="conteudo-tweet">
                 <div className="tweet-titulo">

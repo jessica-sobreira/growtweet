@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { TweetCard } from './TweetCard';
-import { tweet1, tweet2, tweet3, tweet4, tweet5, tweet6, tweet7, tweet8 } from '../database/tweet.db';
+import { tweet1, tweet10, tweet11, tweet12, tweet2, tweet3, tweet4, tweet5, tweet6, tweet7, tweet8, tweet9 } from '../database/tweet.db';
+import { Tweet } from '../model/tweet.model';
+import { useEffect, useState } from 'react';
+import api from '../service/api.service';
 
 const ContentStyled = styled.main`
 overflow: auto;
@@ -26,6 +29,23 @@ border-right: 1px solid gray;
 `
 
 export function Content() {
+
+  const [tweets, setTweets] = useState<Tweet[]>([]);
+
+  useEffect(() => {
+    const fetchTweets = async () => {
+      try {
+        const response = await api.get('/tweets');
+        setTweets(response.data.data);
+      } catch (error) {
+        console.error('Erro ao obter tweets:', error);
+      }
+    };
+    fetchTweets();
+  }, []);
+
+
+
   return (
     <ContentStyled id="content">
       <div className="content-header">
@@ -41,6 +61,15 @@ export function Content() {
         <TweetCard tweet={tweet6} />
         <TweetCard tweet={tweet7} />
         <TweetCard tweet={tweet8} />
+        <TweetCard tweet={tweet9} />
+        <TweetCard tweet={tweet10} />
+        <TweetCard tweet={tweet11} />
+        <TweetCard tweet={tweet12} />
+
+        {
+          tweets.map((item => <TweetCard key={item.id} tweet={item} />))
+
+        }
 
 
       </div>

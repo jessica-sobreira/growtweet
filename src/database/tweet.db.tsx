@@ -55,3 +55,31 @@ export const tweet8 = {
     id: "2230",
     usuario: usuario2
 }
+
+export const tweet9 = {
+    conteudo: "A vida é como uma caixa de chocolates, você nunca sabe o que vai encontrar.",
+    type: "N",
+    id: "2231",
+    usuario: usuario1
+}
+
+export const tweet10 = {
+    conteudo: "D'oh!",
+    type: "N",
+    id: "2232",
+    usuario: usuario4
+}
+
+export const tweet11 = {
+    conteudo: "Bart, pare de fazer travessuras e vá estudar!",
+    type: "N",
+    id: "2233",
+    usuario: usuario3
+}
+
+export const tweet12 = {
+    conteudo: "Marge, onde está minha camisa limpa?",
+    type: "N",
+    id: "2234",
+    usuario: usuario4
+}

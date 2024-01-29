@@ -8,7 +8,7 @@ import { RightMenu } from "../components/RightMenu";
 export function Tweets() {
     return (
         <Container>
-        <LeftMenu/>
+        <LeftMenu />
         <Content />
         <RightMenu/>
       </Container>

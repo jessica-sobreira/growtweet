@@ -4,7 +4,7 @@ import { Perfil } from "./perfil.page";
 import { Tweets } from "./tweets.page";
 
 
-export const router = createBrowserRouter([
+export const routes = createBrowserRouter([
     {
       path: "/",
       element: <Login />,

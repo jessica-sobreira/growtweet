@@ -1,14 +1,14 @@
-import { randomUUID } from "crypto";
+import { Usuario } from "./usuario.model";
 
-export class Tweet {
-    public id: string;
-    constructor(
-        public conteudo: string,
-        public tipo: string,
-    ) {
-        this.id = randomUUID(); 
-    }
- }
+export interface Tweet {
+    id: string;
+    conteudo: string;
+    type: string;
+    usuario: Usuario;
+
+}
+
+
 
  
 

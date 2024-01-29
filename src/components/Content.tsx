@@ -1,48 +1,46 @@
-import styled from "styled-components";
-import { useEffect, useState } from 'react';
-import api from '../service/api.service';
-import { Tweet } from "../model/tweet.model";
+import styled from 'styled-components';
+import { TweetCard } from './TweetCard';
 
+const ContentStyled = styled.main`
+overflow: auto;
+scrollbar-width: thin;
+border-right: 1px solid gray;
 
-const ContentStyled = styled.div`
-    overflow: auto;
-    border: 1px solid darkgray;
+.content-header {
+  padding: 1em;
+  font-weight: bold;
+  border-bottom: 2px solid darkgray;
+  font-size: 1.2em;
+}
 
-    h1 {
-        font-size: 1.2em;
-        margin-left: 1em;
-        margin-top: 1em;
-        margin-bottom: 0.5em;
+.content-body {
+
+  
+    p {
+      margin-bottom: 1em;
+      margin-top: 1em;
     }
+  }
 `
 
-
 export function Content() {
-  const [tweets, setTweets] = useState([]);
-
-  useEffect(() => {
-    const fetchTweets = async () => {
-      try {
-        const response = await api.get('/tweets');
-        setTweets(response.data);
-      } catch (error) {
-        console.error('Erro ao obter tweets:', error);
-
-      }
-    };
-
-    fetchTweets();
-  }, []);
-
   return (
     <ContentStyled id="content">
-      <h1>Página Inicial</h1>
-      <hr></hr>
-      <ul>
-        {tweets.map((tweet: Tweet) => (
-          <li key={tweet.id}>{tweet.conteudo}</li>
-        ))}
-      </ul>
+      <div className="content-header">
+        <p>Página Inicial</p>
+      </div>
+
+      <div className="content-body">
+        <TweetCard />
+        <TweetCard />
+        <TweetCard />
+        <TweetCard />
+        <TweetCard />
+        <TweetCard />
+
+      </div>
     </ContentStyled>
-  );
-}
+    )
+    }
+
+  

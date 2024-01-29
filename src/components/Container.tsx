@@ -7,12 +7,15 @@ export const Container = styled.div`
     margin: auto;
     max-width: 1200px;
 
+
     #left{
         min-width: 280px;
+
     }
 
     #content{
         flex: 1;
+
     }
 
     #right{

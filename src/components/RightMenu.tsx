@@ -15,6 +15,7 @@ const RightMenuStyled = styled.div`
     margin-top: 2em;
     color: black;
 
+
     h3 {
         margin-bottom: 0.5em;
         font-size: 1em;

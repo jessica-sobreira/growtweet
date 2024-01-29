@@ -16,6 +16,7 @@ const LeftMenuStyled = styled.nav`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    border-right: 1px solid gray;
 
     #topo {
         display: flex;

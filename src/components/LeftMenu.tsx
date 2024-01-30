@@ -45,11 +45,36 @@ const LeftMenuStyled = styled.nav`
         align-items: center;
     }
 
+    .rodape-conteudo {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .rodape-texto {
+        flex-grow: 1;
+
+    }
+
 
     #rodape {
         display: flex;
         flex-direction: column;
         margin-bottom: 1.5em;
+
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        span {
+            display: flex;
+            flex-direction: row;
+            margin-right: 0.8em;
+            margin-bottom: 0.3em;
+
+
+        }
     }
 
     #sair {
@@ -59,7 +84,8 @@ const LeftMenuStyled = styled.nav`
         font-weight: bold;
         font-size: 1em;
         cursor: pointer;
-        align-self: start;
+        align-self: center;
+
 
 
     }
@@ -93,6 +119,17 @@ export function LeftMenu(props: UsuarioProps) {
                 </ul>
 
                 <button id="tweetar">Tweetar</button>
+            </div>
+
+            <div id="rodape">
+                <div className='rodape-conteudo'>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Xmf5wkoV33-1hKwP_SjOw7wYORNQcBJMkA&usqp=CAU" alt="Homer" />
+                    <div className='rodape-texto'>
+                    <span>Homer Simpson</span>
+                    <span>@homer</span>
+                    </div>
+                </div>
+                <button id="sair">Sair</button>
             </div>
 
             {/* <div id="rodape">

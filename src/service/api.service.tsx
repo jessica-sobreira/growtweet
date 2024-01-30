@@ -20,3 +20,20 @@ try {
   return null;
 }
 }
+
+export async function listarTweets(userId: string, token: string) {
+  try {
+
+    const result = await api.get(`/usuario/${userId}/tweet`, {
+      headers: {
+        Authorization: token
+      }
+    });
+    
+    return result.data.data;
+   
+  } catch (error: any) {
+    alert(error.toString());
+    return [];
+  } 
+}

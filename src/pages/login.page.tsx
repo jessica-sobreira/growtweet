@@ -1,59 +1,26 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { LoginStyled } from "../components/Login";
-import { ModalStyled } from "../components/Modal";
-import axios from "axios";
+import { login } from "../service/api.service";
 
 export function Login() {
-  const [nome, setNome] = useState<string>("");
-  const [username, setUsername] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [senha, setSenha] = useState<string>("");
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [modalNome, setModalNome] = useState<string>("");
-  const [modalUsername, setModalUsername] = useState<string>("");
-  const [modalEmail, setModalEmail] = useState<string>("");
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+  const navigate = useNavigate();
 
-    try {
-      const response = await axios.post("http://localhost:3005/auth/login", {
-        email,
-        senha,
-      });
+  const submitLogin = async (event: any) => {
+    event.preventDefault();
 
-      console.log(response.data);
+    const body = {
+      email: event.target.email.value,
+      senha: event.target.password.value,
+    };
 
-      localStorage.setItem("token", response.data.token);
+    const result = await login(body);
 
-      window.location.href = "/tweets";
-    } catch (error) {
-      console.error("Erro ao fazer login:", error);
-    }
-  };
-
-  const criarUsuario = async () => {
-    try {
-      const response = await axios.post("http://localhost:3005/usuario", {
-        nome: modalNome,
-        username: modalUsername,
-        email: modalEmail,
-        senha,
-      });
-      console.log(response.data);
-
+    if(result) {
+      navigate("/");
       
-      setModalNome("");
-      setModalUsername("");
-      setModalEmail(""); 
-      setSenha("");
-
-      setShowModal(true);
-
-
-    } catch (error) {
-      console.error("Erro ao criar o usuário:", error);
     }
+
   };
 
   return (
@@ -72,70 +39,28 @@ export function Login() {
 
       <div id="direito">
         <h2>Entrar no Growtweet</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submitLogin}>
           <input
             type="text"
             id="email"
+            name="email"
             placeholder="Email"
-            value={email}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
             id="password"
+            name="password"
             placeholder="Senha"
-            value={senha}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setSenha(e.target.value)}
+            required
           />
           <button type="submit">Entrar</button>
           <p className="cadastro">
             Ainda não tem acesso?
-            <span onClick={criarUsuario}> Cadastre-se</span>
+            <span> Cadastre-se</span>
           </p>
         </form>
       </div>
-
-      {showModal && (
-        <ModalStyled>
-          <h2>Cadastre-se</h2>
-          <form onSubmit={criarUsuario}>
-            <label>
-              Nome:
-              <input
-                type="text"
-                value={modalNome}
-                onChange={(e) => setModalNome(e.target.value)}
-              />
-            </label>
-            <label>
-              Username:
-              <input
-                type="text"
-                value={modalUsername}
-                onChange={(e) => setModalUsername(e.target.value)}
-              />
-            </label>
-            <label>
-              Email:
-              <input
-                type="text"
-                value={email}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-              />
-            </label>
-            <label>
-              Senha:
-              <input
-                type="password"
-                value={senha}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => setSenha(e.target.value)}
-              />
-            </label>
-            <button type="submit">Cadastrar</button>
-          </form>
-          <button onClick={() => setShowModal(false)}>Fechar</button>
-        </ModalStyled>
-      )}
     </LoginStyled>
   );
 }

@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { TweetCard } from './TweetCard';
-import { tweet1, tweet10, tweet11, tweet12, tweet2, tweet3, tweet4, tweet5, tweet6, tweet7, tweet8, tweet9 } from '../database/tweet.db';
+import { tweet10, tweet12, tweet6, tweet5 } from '../database/tweet.db';
 import { Tweet } from '../model/tweet.model';
-import { useEffect, useState } from 'react';
-import api from '../service/api.service';
+
 
 const ContentStyled = styled.main`
 overflow: auto;

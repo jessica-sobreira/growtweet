@@ -28,23 +28,11 @@ border-right: 1px solid gray;
   }
 `
 
-export function Content() {
+interface ContentProps {
+  tweets: Tweet[]
+}
 
-  const [tweets, setTweets] = useState<Tweet[]>([]);
-
-  useEffect(() => {
-    const fetchTweets = async () => {
-      try {
-        const response = await api.get('/tweets');
-        setTweets(response.data.data);
-      } catch (error) {
-        console.error('Erro ao obter tweets:', error);
-      }
-    };
-    fetchTweets();
-  }, []);
-
-
+export function Content(props: ContentProps) {
 
   return (
     <ContentStyled id="content">
@@ -67,10 +55,9 @@ export function Content() {
         <TweetCard tweet={tweet12} />
 
         {
-          tweets.map((item => <TweetCard key={item.id} tweet={item} />))
+          props.tweets.map((item => <TweetCard key={item.id} tweet={item} />))
 
         }
-
 
       </div>
     </ContentStyled>

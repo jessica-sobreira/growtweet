@@ -40,12 +40,11 @@ export function Home() {
 
 
 
-
     return (
         <>
         <Container>
             <LeftMenu />
-            <Content />
+            <Content tweets={tweets} />
             <RightMenu/>
         </Container>
 

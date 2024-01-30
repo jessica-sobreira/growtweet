@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Container } from "../components/Container";
-import { Content } from "../components/Content";
 import { LeftMenu } from "../components/LeftMenu";
 import { RightMenu } from "../components/RightMenu";
 import { Usuario } from "../model/usuario.model";
 import { useNavigate } from "react-router-dom";
 import { listarTweets } from "../service/api.service";
 import { Tweet } from "../model/tweet.model";
+import { ContentPerfil } from "../components/ContenPerfil";
 
 
 export function Perfil() {
@@ -44,7 +44,7 @@ export function Perfil() {
         <>
         <Container>
             <LeftMenu />
-            <Content tweets={tweets} />
+            <ContentPerfil tweets={tweets} />
             <RightMenu/>
         </Container>
 

@@ -17,8 +17,10 @@ export function Login() {
     const result = await login(body);
 
     if(result) {
+      localStorage.setItem("usuario", JSON.stringify(result));
+
       navigate("/");
-      
+
     }
 
   };
